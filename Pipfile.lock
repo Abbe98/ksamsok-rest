@@ -1,0 +1,72 @@
+{
+    "_meta": {
+        "hash": {
+            "sha256": "b8a9e176566ebea8609b759f79f2bfc19068ac78ad680e3882107c9d820ece62"
+        },
+        "pipfile-spec": 1,
+        "requires": {},
+        "sources": [
+            {
+                "url": "https://pypi.python.org/simple",
+                "verify_ssl": true
+            }
+        ]
+    },
+    "default": {
+        "aniso8601": {
+            "version": "==1.3.0"
+        },
+        "certifi": {
+            "version": "==2017.7.27.1"
+        },
+        "chardet": {
+            "version": "==3.0.4"
+        },
+        "click": {
+            "version": "==6.7"
+        },
+        "flask": {
+            "version": "==0.12.2"
+        },
+        "flask-restful": {
+            "version": "==0.3.6"
+        },
+        "idna": {
+            "version": "==2.6"
+        },
+        "itsdangerous": {
+            "version": "==0.24"
+        },
+        "jinja2": {
+            "version": "==2.9.6"
+        },
+        "ksamsok": {
+            "version": "==0.2.1"
+        },
+        "lxml": {
+            "version": "==3.8.0"
+        },
+        "markupsafe": {
+            "version": "==1.0"
+        },
+        "python-dateutil": {
+            "version": "==2.6.1"
+        },
+        "pytz": {
+            "version": "==2017.2"
+        },
+        "requests": {
+            "version": "==2.18.4"
+        },
+        "six": {
+            "version": "==1.10.0"
+        },
+        "urllib3": {
+            "version": "==1.22"
+        },
+        "werkzeug": {
+            "version": "==0.12.2"
+        }
+    },
+    "develop": {}
+}
