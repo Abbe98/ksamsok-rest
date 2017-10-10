@@ -47,7 +47,8 @@ class Records(Resource):
         args = request.args
 
         if 'action' in args and args['action'] == 'bbox':
-            if all(i in ['west', 'south', 'east', 'north'] for i in args):
+
+            if all(i in args for i in ['west', 'south', 'east', 'north']):
                 start = args['start'] if 'start' in args else 0
                 hits = args['hits'] if 'hits' in args else 50
 
