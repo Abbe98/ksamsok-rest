@@ -56,5 +56,5 @@ Returns a list of five search hints for the given string. Commonly used for auto
 git clone https://github.com/Abbe98/ksamsok-rest.git
 cd ksamsok-rest
 pipenv install
-pipenv run python3 app.py
+pipenv run python3 src/app.py
 ```
