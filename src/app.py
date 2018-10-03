@@ -22,6 +22,7 @@ soch = KSamsok('test')
 def after_request(resp):
     resp.headers.add('Access-Control-Allow-Origin', '*')
     resp.headers.add('Access-Control-Allow-Methods', 'GET, HEAD, OPTIONS')
+    resp.headers.add('X-Powered-By', 'K-Samsök REST Version 1.1.0')
     return resp
 
 class Record(Resource):
