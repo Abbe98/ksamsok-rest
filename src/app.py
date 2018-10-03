@@ -1,8 +1,12 @@
-import sys
 import configparser
+import sys
+
+import requests
+
 from ksamsok import KSamsok
-from flask import Flask, request
-from flask_restful import Resource, Api, abort
+
+from flask import Flask, request, Response
+from flask_restful import Api, Resource, abort
 
 # http://www.ianbicking.org/illusive-setdefaultencoding.html
 if sys.version[0] == '2':
@@ -15,19 +19,46 @@ soch = KSamsok('test')
 
 # CORS headers
 @app.after_request
-def after_request(response):
-    response.headers.add('Access-Control-Allow-Origin', '*')
-    response.headers.add('Access-Control-Allow-Methods', 'GET, HEAD, OPTIONS')
-    return response
+def after_request(resp):
+    resp.headers.add('Access-Control-Allow-Origin', '*')
+    resp.headers.add('Access-Control-Allow-Methods', 'GET, HEAD, OPTIONS')
+    return resp
 
 class Record(Resource):
     def get(self, uri):
-        record = soch.getObject(uri)
+        if 'application/json+ld' in request.headers.get('Accept'):
+            url = soch.formatUri(uri, 'jsonldurl')
+            if not url:
+                return abort(404, message='Record {} doesn\'t exist'.format(uri))
 
-        if record:
-            return record
+            r = requests.get(url)
+            if r.status_code is not 200:
+                return abort(404, message='Record {} doesn\'t exist'.format(uri))
 
-        return abort(404, message='Record {} doesn\'t exist'.format(uri))
+            resp = Response(r.text)
+            resp.headers.add('Link', '<http://json-ld.org/contexts/person.jsonld>; rel="http://www.w3.org/ns/json-ld#context"; type="application/ld+json"')
+            return resp
+
+        elif 'application/rdf+xml' in request.headers.get('Accept'):
+            url = soch.formatUri(uri, 'rawurl')
+            if not url:
+                return abort(404, message='Record {} doesn\'t exist'.format(uri))
+
+            r = requests.get(url)
+            if r.status_code is not 200:
+                return abort(404, message='Record {} doesn\'t exist'.format(uri))
+
+            resp = Response(r.text)
+            resp.headers.add('Content-Type', 'application/rdf+xml')
+            return resp
+
+        else:
+            record = soch.getObject(uri)
+
+            if record:
+                return record
+
+            return abort(404, message='Record {} doesn\'t exist'.format(uri))
 
 api.add_resource(Record, '/records/<path:uri>')
 
