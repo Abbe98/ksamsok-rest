@@ -8,16 +8,16 @@ There is a public instance of this API at `https://tools.wmflabs.org/ksamsok-res
 
 ### Records
 
-Retrieve a single record from K-Samsök. An URI is usually formated as `<institution>/dataset/id`.
+Retrieve a single record from K-Samsök. An ID is usually formated as `<institution>/dataset/id`.
 
 ```
-/records/<uri>
+/records/<id>
 ```
 
 Retrieve all relations for a given record.
 
 ```
-/records/<uri>/relations
+/records/<id>/relations
 ```
 
 Search records by text.
