@@ -17,7 +17,7 @@ soch = KSamsok('test')
 @app.after_request
 def after_request(response):
     response.headers.add('Access-Control-Allow-Origin', '*')
-    response.headers.add('Access-Control-Allow-Methods', 'GET')
+    response.headers.add('Access-Control-Allow-Methods', 'GET', 'HEAD', 'OPTIONS')
     return response
 
 class Record(Resource):
