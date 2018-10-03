@@ -1,7 +1,7 @@
 {
     "_meta": {
         "hash": {
-            "sha256": "b8a9e176566ebea8609b759f79f2bfc19068ac78ad680e3882107c9d820ece62"
+            "sha256": "7e199d33c34dd67ba389b1fb9dfd90d783e974053dfda2940acb2046ceb69f9d"
         },
         "pipfile-spec": 1,
         "requires": {},
@@ -23,7 +23,7 @@
             "version": "==3.0.4"
         },
         "click": {
-            "version": "==6.7"
+            "version": "==7.0"
         },
         "flask": {
             "version": "==1.0.2"
@@ -44,7 +44,7 @@
             "version": "==0.5.1"
         },
         "lxml": {
-            "version": "==4.2.4"
+            "version": "==4.2.5"
         },
         "markupsafe": {
             "version": "==1.0"
