@@ -4,11 +4,11 @@ K-Samsök REST is an JSON REST API built as a proxy for the K-Samsök (Swedish O
 
 ## API Documentation
 
-There is a public instance of this API at `https://tools.wmflabs.org/ksamsok-rest`.
+There is a public instance of this API at `https://tools.wmflabs.org/ksamsok-rest`. From version 1.1.0 K-Samsök REST instances provides a `X-Powered-By` header.
 
 ### Records
 
-Retrieve a single record from K-Samsök. An ID is usually formated as `<institution>/dataset/id`.
+Retrieve a single record from K-Samsök. An ID is usually formated as `<institution>/dataset/id`. If you want the full record as JSON-LD or as XML RDF use one of the following Accept headers: `application/json+ld`, `application/rdf+xml`.
 
 ```
 /records/<id>
