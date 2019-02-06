@@ -98,6 +98,15 @@ class Records(Resource):
 
             return abort(400, message='The text parameter is missing.')
 
+        if 'action' in args and args['action'] == 'cql':
+            if 'query' in args:
+                start = args['start'] if 'start' in args else 0
+                hits = args['hits'] if 'hits' in args else 50
+
+                return soch.cql(request.args['query'], start, hits)
+
+            return abort(400, message='The query parameter is missing.')
+
         return abort(400, message='The action parameter is missing or has a invalid value.')
 
 api.add_resource(Records, '/records')
