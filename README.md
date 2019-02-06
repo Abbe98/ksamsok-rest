@@ -42,6 +42,12 @@ Search by bounding box:
 
 Note that the API can handle both SWEREF 99 and WGS84. `start` and `hits` are available for bounding searches too.
 
+Query K-samsök with CQL:
+
+```
+/records?action=cql&query=<string>
+```
+
 ### Search Hints
 
 Returns a list of five search hints for the given string. Commonly used for auto complete features.
