@@ -1,6 +1,6 @@
-# K-Samsök REST
+# K-samsök REST
 
-K-Samsök REST is an JSON REST API built as a proxy for the K-Samsök (Swedish Open Cultural Heritage) API.
+K-samsök REST is an JSON REST API built as a proxy for the K-samsök (Swedish Open Cultural Heritage) API.
 
 ## API Documentation
 
